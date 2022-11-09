@@ -22,7 +22,7 @@ describe "New author page", type: :feature do
     fill_in 'author[last_name]', with: ''
     fill_in 'author[homepage]', with: 'http://wikipedia.org/Alan_Turing'
     find('input[type="submit"]').click
-    expect(page).to have_text("errors")
+    expect(page).to have_text("error")
   end
 
 end
