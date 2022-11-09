@@ -23,5 +23,21 @@ describe "New paper page", type: :feature do
     find('input[type="submit"]').click
     expect(page).to have_text("error")
   end
+  it "should not be valid if venue is not submitted" do
+    @paper = Paper.new(title: "test", venue: "", year: 1000)
+    expect(@paper).to_not be_valid
+  end
+  it "should not be valid if year is not submitted" do
+    @paper = Paper.new(title: "test", venue: "test", year: "")
+    expect(@paper).to_not be_valid
+  end
+  it "should not be valid if year is not a number" do
+    @paper = Paper.new(title: "test", venue: "test", year: "test")
+    expect(@paper).to_not be_valid
+  end
+  it "should not be valid if title is not submitted" do
+    @paper = Paper.new(title: "", venue: "test", year: 1000)
+    expect(@paper).to_not be_valid
+  end
 
 end
