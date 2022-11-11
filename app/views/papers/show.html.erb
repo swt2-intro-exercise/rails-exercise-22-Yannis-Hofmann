@@ -2,6 +2,10 @@
 
 <%= render @paper %>
 
+<p>
+  <strong>Authors:</strong>
+  <%= @paper.authors.map(&:name).join(', ') %>
+</p>
 <div>
   <%= link_to "Edit this paper", edit_paper_path(@paper) %> |
   <%= link_to "Back to papers", papers_path %>
