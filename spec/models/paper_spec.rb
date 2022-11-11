@@ -1,5 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Paper, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "should have a list of authors" do
+    @paper = FactoryBot.create :paper
+    expect(@paper.authors).to eq([])
+  end
 end
