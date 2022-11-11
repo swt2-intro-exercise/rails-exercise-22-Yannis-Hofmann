@@ -10,5 +10,10 @@ describe "New paper page", type: :feature do
     visit "/papers"
     expect(page).to have_link("Edit", href: "/papers/1/edit")
   end
+  it "should hava link to delete paper" do
+    @paper = FactoryBot.create :paper
+    visit "/papers"
+    expect(page).to have_link("Delete", href: paper_path(@paper))
+  end
 end
 
